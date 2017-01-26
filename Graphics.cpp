@@ -10,14 +10,15 @@
 #include "GameObject.h"
 #include "Camera.h"
 
-
+#include <iostream>
 
 
 
  
-Graphics::Graphics(Window &window, std::vector<GameObject *> &objects): glfwWindow(window.window), objectList(&objects)
+Graphics::Graphics(Window &window, std::vector<GameObject *> &objects) 
 {	
-	
+	this->glfwWindow=window.window;
+	this->objectList=&objects;
 	window.getSize(width, height);
 	// Define the viewport dimensions
 	glViewport(0, 0, width, height);
@@ -44,6 +45,7 @@ void Graphics::draw(Camera &camera)
 {
 	// Render
 	// Clear the colorbuffer
+	
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 

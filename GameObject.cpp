@@ -7,6 +7,7 @@
 #include "Model.h"
 #include "types.h"
 #include "Shader.h"
+#include "Window.h"
 
 
  
@@ -50,12 +51,13 @@ void GameObject::rotate(Vec3 degrees)
 	rotation += degrees;
 }
 
-static glm::mat4 projection = glm::perspective(45.0f, (GLfloat)800 / (GLfloat)600, 0.1f, 100.0f);
-
+ 
 void GameObject::draw(Camera &camera)
 {
 	
-	model->draw(camera.getViewMatrix(), projection);
+	Tmat modelMAtrix= glm::translate(Tmat(1.0), position);
+
+	model->draw(modelMAtrix , camera.getViewMatrix(), camera.getProjectionMatrix() );
 }
  
 

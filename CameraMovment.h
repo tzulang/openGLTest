@@ -7,26 +7,41 @@
 
 #include "UserInput.h"
 #include "Camera.h"
+#include "Types.h"
+
 
 class CameraMovment :
 	public UserInput
 {
 public:
-	CameraMovment();
+	CameraMovment(Window &window, Camera &camera);
 
 	virtual ~CameraMovment();
 
-	virtual void bind() override;
+	virtual void process() override;
 
 
 	private :
+
+		Camera * camera;
+
+		bool moveCamera(Direction &direction);
+
 
 		static void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode);
 		static void MouseCallback(GLFWwindow *window, double xPos, double yPos);
 
 
-		static double lastX, lastY;
-		static bool keys[1024],
-			   firstMouse ;
+		 
+		static GLfloat lastX, lastY ,xOffset ,yOffset, mouseSensitivity; 
+		static bool keys[];
+		static bool firstMouse ;
+
+
+	 
+		
+		
+		
+		
 };
 

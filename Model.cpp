@@ -6,7 +6,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp> 
-
+#include <glm/gtx/string_cast.hpp>
 
 
 #include "Types.h"
@@ -85,21 +85,15 @@ void Model::freeResources()
 
 
 
-void Model::draw(Tmat &view, Tmat &projection)
+void Model::draw(Tmat &model, Tmat &view,Tmat &projection)
 {
-
-	Tmat rot, trans, model;
-	
-	rot = Tmat();//glm::rotate(model, glm::radians((GLfloat)glfwGetTime() * 50.0f), Vec3(1.0f, 0.0f, 0.0f)); // use with perspective projection
-	trans = glm::translate(Tmat(1.0f), Vec3(0, 0, -2.0f));
-	model = trans * rot;
- 
 
 	// Draw the triangle
 	shader->Use();
 
-
-
+	
+	 
+	
 	
 	GLint modLoc = glGetUniformLocation(shader->Program, "model");
 	GLint viewLoc = glGetUniformLocation(shader->Program, "view");

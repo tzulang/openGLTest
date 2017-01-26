@@ -6,7 +6,7 @@
 #include "Model.h"
 #include "Shader.h"
 #include "Camera.h"
-
+#include "Window.h"
 
 class GameObject
 {
@@ -25,7 +25,6 @@ public:
 
 	void move(Vec3 delta);
 	void rotate(Vec3 degrees);
-
 	void draw(Camera &camera);
 	
 

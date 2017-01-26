@@ -6,7 +6,7 @@ class UserInput
 public:
 
 
-	virtual void bind()=0;
+	virtual void process()=0;
 	
 		
 };
